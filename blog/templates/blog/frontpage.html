@@ -1,0 +1,77 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+{% for post in posts %}
+
+<style>
+    #home {
+        background-color: blue;
+    }
+
+    .controls button {
+        color: white;
+        padding: 8px;
+        border-radius: 8px;
+        border: none;
+        font-size: 20px;
+
+        cursor: pointer;
+        margin-bottom: 1px;
+        margin-top: 1px;
+    }
+
+    @media (max-width: 1200px) {
+        .para {
+            font-size: 50px;
+        }
+
+        .para1 {
+            font-size: 30px;
+
+        }
+
+        .controls button {
+            color: white;
+            padding: 8px;
+            border-radius: 8px;
+            border: none;
+            font-size: 30px;
+
+            cursor: pointer;
+            margin-bottom: 1px;
+            margin-top: 1px;
+        }
+
+        .subtitle {
+            font-size: 60px;
+        }
+
+        .small,
+        small {
+            font-size: 45px;
+        }
+
+
+    }
+</style>
+<div class="post block">
+ 
+    <div class="card mt-4" style="padding: 3rem;">
+        {% csrf_token %}
+        <h2 class="subtitle" class=" ">{{ post.title }}</h2>
+
+        <small class="para1">Posted at {{ post.date_added }}</small>
+
+        <p class="para">{{ post.intro }}</p>
+
+        <small>
+            <section class="controls">
+                <button id="home" onclick="window.open('{% url 'post_detail' post.slug %}','_self');">Read more</button>
+
+            </section>
+        </small>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

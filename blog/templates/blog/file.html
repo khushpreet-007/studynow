@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Computer Science</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <div class="heap">
+            <a href="/" role="button" class="text-black">
+                <i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="/about" role="button" class="text-black">
+                <i class="fa fa-address-book" aria-hidden="true"></i></a>
+            <a href="/contact" role="button" class="text-black">
+                <i class="fa fa-phone" aria-hidden="true"></i></a>
+            <a href="/privacy" role="button" class="text-black">
+                <i class="fa fa-lock" aria-hidden="true"></i></a>
+            <a href="/games" role="button" class="text-black">
+                <i class="fa fa-gamepad" aria-hidden="true"></i></a>
+        </div>
+
+    </header>
+</head>
+
+<script>
+
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+        const showNavbar = (toggleId, navId, bodyId, headerId) => {
+            const toggle = document.getElementById(toggleId),
+                nav = document.getElementById(navId),
+                bodypd = document.getElementById(bodyId),
+                headerpd = document.getElementById(headerId)
+
+            // Validate that all variables exist
+            if (toggle && nav && bodypd && headerpd) {
+                toggle.addEventListener('click', () => {
+                    // show navbar
+                    nav.classList.toggle('show')
+                    // change icon
+                    toggle.classList.toggle('bx-x')
+                    // add padding to body
+                    bodypd.classList.toggle('body-pd')
+                    // add padding to header
+                    headerpd.classList.toggle('body-pd')
+                })
+            }
+        }
+
+        showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
+
+        /*===== LINK ACTIVE =====*/
+        const linkColor = document.querySelectorAll('.nav_link')
+
+        function colorLink() {
+            if (linkColor) {
+                linkColor.forEach(l => l.classList.remove('active'))
+                this.classList.add('active')
+            }
+        }
+        linkColor.forEach(l => l.addEventListener('click', colorLink))
+
+        // Your code to run since DOM is loaded and ready
+    });
+</script>
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+    :root {
+        --header-height: 3rem;
+        --nav-width: 68px;
+        --first-color: #4723D9;
+        --first-color-light: #AFA5D9;
+        --white-color: #F7F6FB;
+        --body-font: 'Nunito', sans-serif;
+        --normal-font-size: 1rem;
+        --z-fixed: 100
+    }
+
+    *,
+    ::before,
+    ::after {
+        box-sizing: border-box
+    }
+
+    body {
+        position: relative;
+        margin: var(--header-height) 0 0 0;
+        padding: 0 1rem;
+        font-family: var(--body-font);
+        font-size: var(--normal-font-size);
+        transition: .5s
+    }
+
+    a {
+        text-decoration: none
+    }
+
+    .header {
+        width: 100%;
+        height: var(--header-height);
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1rem;
+        background-color: var(--white-color);
+        z-index: var(--z-fixed);
+        transition: .5s
+    }
+
+    .header_toggle {
+        color: var(--first-color);
+        font-size: 1.5rem;
+        cursor: pointer
+    }
+
+    .header_img {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        border-radius: 50%;
+        overflow: hidden
+    }
+
+    .header_img img {
+        width: 40px
+    }
+
+    .contact_img img {
+        max-width: 30%;
+        height: 30%;
+    }
+
+    .l-navbar {
+        position: fixed;
+        top: 0;
+        left: -30%;
+        width: var(--nav-width);
+        height: 100vh;
+        background-color: var(--first-color);
+        padding: .5rem 1rem 0 0;
+        transition: .5s;
+        z-index: var(--z-fixed)
+    }
+
+    .nav {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden
+    }
+
+    .nav_logo,
+    .nav_link {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        align-items: center;
+        column-gap: 1rem;
+        padding: .5rem 0 .5rem 1.5rem
+    }
+
+    .nav_logo {
+        margin-bottom: 2rem
+    }
+
+    .nav_logo-icon {
+        font-size: 1.25rem;
+        color: var(--white-color)
+    }
+
+    .nav_logo-name {
+        color: var(--white-color);
+        font-weight: 700
+    }
+
+    .nav_link {
+        position: relative;
+        color: var(--first-color-light);
+        margin-bottom: 1.5rem;
+        transition: .3s
+    }
+
+    .nav_link:hover {
+        color: var(--white-color)
+    }
+
+    .nav_icon {
+        font-size: 1.25rem
+    }
+
+    .show {
+        left: 0
+    }
+
+    .body-pd {
+        padding-left: calc(var(--nav-width) + 1rem)
+    }
+
+    .active {
+        color: var(--white-color)
+    }
+
+    .active::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 2px;
+        height: 32px;
+        background-color: var(--white-color)
+    }
+
+    .height-100 {
+        height: 100vh
+    }
+
+    .controls button {
+        color: white;
+        padding: 8px;
+        border-radius: 8px;
+        border: none;
+        font-size: 20px;
+        margin-left: 10em;
+        cursor: pointer;
+    }
+
+    #home {
+        background-color: brown;
+        align-self: right;
+
+    }
+
+    #home1 {
+        background-color: black;
+    }
+
+    #home2 {
+        background-color: purple;
+    }
+
+    #home3 {
+        background-color: orange;
+
+    }
+
+    #home4 {
+        background-color: rgb(18, 83, 7);
+
+    }
+
+    .para1 {
+        font-size: 70px;
+        font-weight: bold;
+
+    }
+
+    @media (max-width:1200px) {
+        .header {
+            height: auto;
+        }
+
+
+        .show {
+            width: calc(var(--nav-width) + 300px)
+        }
+
+        body {
+            margin: calc(var(--header-height) + 1rem) 0 0 0;
+            padding-left: calc(var(--nav-width) + 2rem);
+            margin-left: 1%;
+            font-size: 30px;
+        }
+
+        .l-navbar {
+            left: 0;
+            padding: 2rem 2rem 0 0;
+            width: 100px;
+            margin-right: 100px;
+        }
+
+        .nav_icon {
+            font-size: 3rem
+        }
+
+        .nav_logo-icon {
+            font-size: 3rem;
+        }
+
+        .header_img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .header_toggle {
+            color: var(--first-color);
+            font-size: 5rem;
+            cursor: pointer
+        }
+
+        .para {
+            font-size: 50px;
+        }
+
+        .para1 {
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+        .about_img img {
+            max-width: 70%;
+            height: 60%;
+            align-self: center;
+        }
+
+        .nav_logo-name {
+            size: 20px;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        body {
+            margin: calc(var(--header-height) + 1rem) 0 0 0;
+            padding-left: calc(var(--nav-width) + 2rem)
+        }
+
+        .header {
+            height: calc(var(--header-height) + 1rem);
+            padding: 0 2rem 0 calc(var(--nav-width) + 2rem)
+        }
+
+        .header_img {
+            width: 70px;
+            height: 70px
+        }
+
+        .header_img img {
+            width: 45px
+        }
+
+        .l-navbar {
+            left: 0;
+            padding: 1rem 1rem 0 0
+        }
+
+        .contact_img img {
+            max-width: 30%;
+            height: 30%;
+        }
+
+
+        .show {
+            width: calc(var(--nav-width) + 280px)
+        }
+
+        .body-pd {
+            padding-left: calc(var(--nav-width) + 290px)
+        }
+    }
+</style>
+
+
+<body id="body-pd">
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div> <a href="/" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
+                        class="nav_logo-name">Computer Science</span> </a>
+                <div class="nav_list"> <a href="/about" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i>
+                        <span class="nav_name">About Us</span> </a> <a href="/contact" class="nav_link"> <i
+                            class='bx bx-user nav_icon'></i> <span class="nav_name">Contact Us</span> </a> <a
+                        href="/privacy" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span
+                            class="nav_name">Privacy Policy</span> </a> <a href="/" class="nav_link"> <i
+                            class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Donation</span> </a> <a
+                        href="/file" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span
+                            class="nav_name">Files</span> </a>
+                    <a href="/games" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span
+                            class="nav_name">Games</span> </a>
+                </div>
+            </div> <a href="/" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Copyright
+                    © 2022</span> </a>
+
+        </nav>
+    </div>
+    <!--Container Main start-->
+    <div class="height-100 bg-light">
+
+        <section class="section">
+            <div class="container">
+                <h1>E Books</h1>
+
+                <br>
+
+                <br>
+                <section class="controls">
+                    <div class="card mt-4" style="padding: 2rem;">
+
+                        <a href="https://www.amazon.in/Atomic-Habits-James-Clear/dp/1847941834?crid=CFCHKD1T8NMS&amp;keywords=Atomic+Habits%3A+An+Easy+%26+Proven+Way+to+Build+Good+Habits+%26+Break+Bad+Ones&amp;qid=1655623084&amp;sprefix=atomic+habits+an+easy+%26+proven+way+to+build+good+habits+%26+break+bad+ones%2Caps%2C275&amp;sr=8-2&amp;linkCode=li3&amp;tag=ourshopkeeper-21&amp;linkId=588425cd47d5fc5cf662bc93dd7a32de&amp;language=en_IN&amp;ref_=as_li_ss_il"
+                            target="_blank"><img border="0"
+                                src="//ws-in.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=1847941834&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=IN&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=ourshopkeeper-21&amp;language=en_IN" /></a><img
+                            alt="" border="0" height="1"
+                            src="https://ir-in.amazon-adsystem.com/e/ir?t=ourshopkeeper-21&amp;language=en_IN&amp;l=li3&amp;o=31&amp;a=1847941834"
+                            style="border:none !important; margin:0px !important;" width="1" />
+
+                        <button id="home" onclick="window.open('https://amzn.to/3tKpsOW','_self');">Atomic
+                            Habits</button>
+                        <br>
+                        <para1>
+                            Publisher: Random House Business Books (30 October 2018)
+
+                        </para1>
+
+                    </div>
+
+                    <br>
+                    <br>
+                    <div class="card mt-4" style="padding: 2rem;">
+
+                        <a href="https://www.amazon.in/Ends-Us-Novel-Colleen-Hoover/dp/1501110365?crid=1121V138F689Q&keywords=It+Ends+with+Us%3A+A+Novel+%281%29&qid=1655625257&sprefix=it+ends+with+us+a+novel+1+%2Caps%2C837&sr=8-1&linkCode=li3&tag=ourshopkeeper-21&linkId=4235001fc296e76e4df6547abe5ab455&language=en_IN&ref_=as_li_ss_il"
+                            target="_blank"><img border="0"
+                                src="//ws-in.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1501110365&Format=_SL250_&ID=AsinImage&MarketPlace=IN&ServiceVersion=20070822&WS=1&tag=ourshopkeeper-21&language=en_IN"></a><img
+                            src="https://ir-in.amazon-adsystem.com/e/ir?t=ourshopkeeper-21&language=en_IN&l=li3&o=31&a=1501110365"
+                            width="1" height="1" border="0" alt=""
+                            style="border:none !important; margin:0px !important;" />
+
+
+
+                        <button id="home1" onclick="window.open('https://amzn.to/3O3Cqix','_self');">It Ends With
+                            Us</button>
+                        <br>
+                        <para1>
+                            Publisher : Simon & Schuser India
+                        </para1>
+                    </div>
+                    <br>
+                    <div class="card mt-4" style="padding: 2rem;">
+
+                        <a href="https://www.amazon.in/Last-Thing-He-Told-Me-ebook/dp/B08MHDDLVT?crid=1FZC4UY73FH2D&keywords=The+Last+Thing+He+Told+Me%3A+The+No.+1+New+York+Times+Bestseller+and+Reese%27s+Book+Club+Pick&qid=1655626605&sprefix=the+last+thing+he+told+me+the+no.+1+new+york+times+bestseller+and+reese+s+book+club+pick%2Caps%2C654&sr=8-1&linkCode=li3&tag=ourshopkeeper-21&linkId=d9fea47e8d147dad087cd0300efad9a3&language=en_IN&ref_=as_li_ss_il"
+                            target="_blank"><img border="0"
+                                src="//ws-in.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B08MHDDLVT&Format=_SL250_&ID=AsinImage&MarketPlace=IN&ServiceVersion=20070822&WS=1&tag=ourshopkeeper-21&language=en_IN"></a><img
+                            src="https://ir-in.amazon-adsystem.com/e/ir?t=ourshopkeeper-21&language=en_IN&l=li3&o=31&a=B08MHDDLVT"
+                            width="1" height="1" border="0" alt=""
+                            style="border:none !important; margin:0px !important;" />
+                        <br>
+                        <button id="home3" onclick="window.open('https://amzn.to/3O3Cqix','_self');">The Last Thing He
+                            Told Me
+                        </button>
+                        <br>
+                        <br>
+                        <para1> Publisher : Viper; Main edition </para1>
+                        <br>
+                    </div>
+                    <br>
+                    <div class="card mt-4" style="padding: 2rem;">
+
+                        <a href="https://www.amazon.in/MAID-instant-bestseller-gripping-everyones/dp/0008539049?crid=26XT944XHPNMP&keywords=The+Maid%3A+The+instant+Sunday+Times+and+the+No.1+New+York+Times+bestseller%2C+a+gripping+read+in+mystery+books+that+everyone%E2%80%99s+talking+about&qid=1655627530&sprefix=the+maid+the+instant+sunday+times+and+the+no.1+new+york+times+bestseller%2C+a+gripping+read+in+mystery+books+that+everyone+s+talking+about%2Caps%2C709&sr=8-1&linkCode=li3&tag=ourshopkeeper-21&linkId=ff57b4e3fcb6f1b84f8613543a90ebcb&language=en_IN&ref_=as_li_ss_il"
+                            target="_blank"><img border="0"
+                                src="//ws-in.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0008539049&Format=_SL250_&ID=AsinImage&MarketPlace=IN&ServiceVersion=20070822&WS=1&tag=ourshopkeeper-21&language=en_IN"></a><img
+                            src="https://ir-in.amazon-adsystem.com/e/ir?t=ourshopkeeper-21&language=en_IN&l=li3&o=31&a=0008539049"
+                            width="1" height="1" border="0" alt=""
+                            style="border:none !important; margin:0px !important;" />
+                        <br>
+                        <button id="home2" onclick="window.open('https://amzn.to/3QuM8fI','_self');">The Maid</button>
+
+                        <br>
+                        <para1> Publisher : HarperCollins (January 20, 2022) </para1>
+                        <br>
+                    </div>
+                    <br>
+                    <div class="card mt-4" style="padding: 2rem;">
+
+                        <a href="https://www.amazon.in/Run-Rose-eagerly-anticipated-novel/dp/1529135680?crid=2CSA839NE75K3&keywords=Run+Rose+Run%3A+The+most+eagerly+anticipated+novel+of+2022&qid=1655628010&sprefix=run+rose+run+the+most+eagerly+anticipated+novel+of+2022%2Caps%2C683&sr=8-1&linkCode=li3&tag=ourshopkeeper-21&linkId=404ea9c46a90209547aa9ff39f060f94&language=en_IN&ref_=as_li_ss_il"
+                            target="_blank"><img border="0"
+                                src="//ws-in.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1529135680&Format=_SL250_&ID=AsinImage&MarketPlace=IN&ServiceVersion=20070822&WS=1&tag=ourshopkeeper-21&language=en_IN"></a><img
+                            src="https://ir-in.amazon-adsystem.com/e/ir?t=ourshopkeeper-21&language=en_IN&l=li3&o=31&a=1529135680"
+                            width="1" height="1" border="0" alt=""
+                            style="border:none !important; margin:0px !important;" />
+                        <button id="home4" onclick="window.open('https://amzn.to/39BOtok','_self');">Run Rose
+                            Run</button>
+                        <br>
+                        <br>
+                        <para1> Publisher : Century </para1>
+                        <br>
+                    </div>
+                    <br>
+                    <br>
+
+
+            </div>
+
+
+
+            <footer class="bg-light text-center text-white">
+                <!-- Grid container -->
+                <div class="container p-4 pb-0">
+                    <!-- Section: Social media -->
+                    <section class="mb-4">
+                        <!-- Facebook -->
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="
+                        https://www.facebook.com/onlymeme.in
+                        " role="button"><i class="fab fa-facebook-f"></i></a>
+
+                        <!-- Twitter -->
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="
+                        https://twitter.com/ourshopkeeper/
+                        " role="button"><i class="fab fa-twitter"></i></a>
+
+                        <!-- Google -->
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #dd4b39;" href="
+                        https://www.pinterest.ca/kingage30s/
+                        " role="button"><i class="fab fa-pinterest"></i></a>
+
+                        <!-- Instagram -->
+
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href=" 
+                        https://www.instagram.com/ourshopkeeper/
+                        " role="button"><i class="fab fa-instagram"></i></a>
+
+                        <!-- Linkedin -->
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #0082ca;" href="
+             #
+                        " role="button"><i class="fab fa-linkedin-in"></i></a>
+                        <!-- Github -->
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #333333;" href="
+                        https://www.youtube.com/channel/UCnh4JOHzQ1BYGYvXPppeOGA?sub_confirmation=1
+                        " role="button"><i class="fab fa-youtube-square"></i></a>
+                    </section>
+                    <!-- Section: Social media -->
+                </div>
+                <!-- Grid container -->
+
+                <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    Made with ❤️️ By
+                    <a class="text-white" href="/"> Khushpreet</a>
+
+                </div>
+                <!-- Copyright -->
+            </footer>
+            <!-- Footer -->
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Computer Science</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet">
+
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <div class="heap">
+            <a href="/" class="text-black" role="button">
+                <i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="/about" class="text-black" role="button">
+                <i class="fa fa-address-book" aria-hidden="true"></i></a>
+            <a href="/contact" class="text-black" role="button">
+                <i class="fa fa-phone" aria-hidden="true"></i></a>
+            <a href="/privacy" class="text-black" role="button">
+                <i class="fa fa-lock" aria-hidden="true"></i></a>
+            <a href="/games" class="text-black" role="button">
+                <i class="fa fa-gamepad" aria-hidden="true"></i></a>
+        </div>
+
+    </header>
+</head>
+
+<script>
+
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+        const showNavbar = (toggleId, navId, bodyId, headerId) => {
+            const toggle = document.getElementById(toggleId),
+                nav = document.getElementById(navId),
+                bodypd = document.getElementById(bodyId),
+                headerpd = document.getElementById(headerId)
+
+            // Validate that all variables exist
+            if (toggle && nav && bodypd && headerpd) {
+                toggle.addEventListener('click', () => {
+                    // show navbar
+                    nav.classList.toggle('show')
+                    // change icon
+                    toggle.classList.toggle('bx-x')
+                    // add padding to body
+                    bodypd.classList.toggle('body-pd')
+                    // add padding to header
+                    headerpd.classList.toggle('body-pd')
+                })
+            }
+        }
+
+        showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
+
+        /*===== LINK ACTIVE =====*/
+        const linkColor = document.querySelectorAll('.nav_link')
+
+        function colorLink() {
+            if (linkColor) {
+                linkColor.forEach(l => l.classList.remove('active'))
+                this.classList.add('active')
+            }
+        }
+        linkColor.forEach(l => l.addEventListener('click', colorLink))
+
+        // Your code to run since DOM is loaded and ready
+    });
+</script>
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+    :root {
+        --header-height: 3rem;
+        --nav-width: 68px;
+        --first-color: #4723D9;
+        --first-color-light: #AFA5D9;
+        --white-color: #F7F6FB;
+        --body-font: 'Nunito', sans-serif;
+        --normal-font-size: 1rem;
+        --z-fixed: 100
+    }
+
+    *,
+    ::before,
+    ::after {
+        box-sizing: border-box
+    }
+
+    body {
+        position: relative;
+        margin: var(--header-height) 0 0 0;
+        padding: 0 1rem;
+        font-family: var(--body-font);
+        font-size: var(--normal-font-size);
+        transition: .5s
+    }
+
+    a {
+        text-decoration: none
+    }
+
+    .header {
+        width: 100%;
+        height: var(--header-height);
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1rem;
+        background-color: var(--white-color);
+        z-index: var(--z-fixed);
+        transition: .5s
+    }
+
+    .header_toggle {
+        color: var(--first-color);
+        font-size: 1.5rem;
+        cursor: pointer
+    }
+
+    .header_img {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        border-radius: 50%;
+        overflow: hidden
+    }
+
+    .header_img img {
+        width: 40px
+    }
+
+    .about_img img {
+        max-width: 30%;
+        height: 40%;
+    }
+
+    .l-navbar {
+        position: fixed;
+        top: 0;
+        left: -30%;
+        width: var(--nav-width);
+        height: 100vh;
+        background-color: var(--first-color);
+        padding: .5rem 1rem 0 0;
+        transition: .5s;
+        z-index: var(--z-fixed)
+    }
+
+    .nav {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden
+    }
+
+    .nav_logo,
+    .nav_link {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        align-items: center;
+        column-gap: 1rem;
+        padding: .5rem 0 .5rem 1.5rem
+    }
+
+    .nav_logo {
+        margin-bottom: 2rem
+    }
+
+    .nav_logo-icon {
+        font-size: 1.25rem;
+        color: var(--white-color)
+    }
+
+    .nav_logo-name {
+        color: var(--white-color);
+        font-weight: 700
+    }
+
+    .nav_link {
+        position: relative;
+        color: var(--first-color-light);
+        margin-bottom: 1.5rem;
+        transition: .3s
+    }
+
+    .nav_link:hover {
+        color: var(--white-color)
+    }
+
+    .nav_icon {
+        font-size: 1.25rem
+    }
+
+    .show {
+        left: 0
+    }
+
+    .body-pd {
+        padding-left: calc(var(--nav-width) + 1rem)
+    }
+
+    .active {
+        color: var(--white-color)
+    }
+
+    .privacy_img img {
+        width: 30%;
+        height: 30%;
+    }
+
+    .active::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 2px;
+        height: 32px;
+        background-color: var(--white-color)
+    }
+
+    .height-100 {
+        height: 100vh
+    }
+
+
+    @media (max-width:1200px) {
+        .header {
+            height: auto;
+        }
+
+
+        .show {
+            width: calc(var(--nav-width) + 300px)
+        }
+
+        body {
+            margin: calc(var(--header-height) + 1rem) 0 0 0;
+            padding-left: calc(var(--nav-width) + 2rem);
+            margin-left: 1%;
+            font-size: 30px;
+        }
+
+        .l-navbar {
+            left: 0;
+            padding: 2rem 2rem 0 0;
+            width: 100px;
+            margin-right: 100px;
+        }
+
+        .nav_icon {
+            font-size: 3rem
+        }
+
+        .nav_logo-icon {
+            font-size: 3rem;
+        }
+
+        .header_img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .header_toggle {
+            color: var(--first-color);
+            font-size: 5rem;
+            cursor: pointer
+        }
+
+        .para {
+            font-size: 50px;
+        }
+
+        .para1 {
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+        .about_img img {
+            max-width: 70%;
+            height: 60%;
+            align-self: center;
+        }
+
+        .nav_logo-name {
+            size: 20px;
+        }
+
+        .privacy_img img {
+            width: 30%;
+            height: 30%;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        body {
+            margin: calc(var(--header-height) + 1rem) 0 0 0;
+            padding-left: calc(var(--nav-width) + 2rem)
+        }
+
+        .header {
+            height: calc(var(--header-height) + 1rem);
+            padding: 0 2rem 0 calc(var(--nav-width) + 2rem)
+        }
+
+        .header_img {
+            width: 70px;
+            height: 70px
+        }
+
+        .header_img img {
+            width: 45px
+        }
+
+        .l-navbar {
+            left: 0;
+            padding: 1rem 1rem 0 0
+        }
+
+        .show {
+            width: calc(var(--nav-width) + 280px)
+        }
+
+        .body-pd {
+            padding-left: calc(var(--nav-width) + 290px)
+        }
+    }
+</style>
+
+
+<body id="body-pd">
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div> <a href="/" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
+                        class="nav_logo-name">Computer Science</span> </a>
+                <div class="nav_list"> <a href="/about" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i>
+                        <span class="nav_name">About Us</span> </a> <a href="/contact" class="nav_link"> <i
+                            class='bx bx-user nav_icon'></i> <span class="nav_name">Contact Us</span> </a> <a
+                        href="/privacy" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span
+                            class="nav_name">Privacy Policy</span> </a> <a href="/" class="nav_link"> <i
+                            class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Donation</span> </a> <a
+                        href="/file" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span
+                            class="nav_name">Files</span> </a>
+                    <a href="/games" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span
+                            class="nav_name">Games</span> </a>
+                </div>
+            </div> <a href="/" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Copyright
+                    © 2022</span> </a>
+
+        </nav>
+    </div>
+    <!--Container Main start-->
+    <div class="height-100 bg-light">
+
+        <section class="section">
+            <div class="container">
+                <h1 class="para1">Privacy Policy </h1>
+                <br>
+                <div class="card mt-4" style="padding: 3rem;">
+
+                    <div class="privacy_img"> <img
+                            src="https://1.bp.blogspot.com/-MPH0AfikoBQ/XrJU5sS3P_I/AAAAAAAAB2s/pzVJm_WbL54zcgTWfEFQGKTa91xb4iVLwCLcBGAsYHQ/s1600/20200506_113754.jpg"
+                            alt="">
+                    </div>
+                </div>
+                <br>
+                <div class="card mt-4" style="padding: 3rem;">
+
+                    <p class="para">
+
+                        Privacy Policy
+
+                        <br>
+                        <br>
+
+                        At studyanywhere, accessible from https://studyanywhere.app/, one of our main
+                        priorities is the
+                        privacy of our visitors. This Privacy Policy document contains types of information that is
+                        collected and recorded by https://studyanywhereofficial.herokuapp.com/ and how we use it.
+                        If you have additional questions or require more information about our Privacy Policy, do not
+                        hesitate to contact us through email at kingage30s@gmail.com
+
+                        Log Files
+                        <br>
+
+                        https://studyanywhere.app/ follows a standard procedure of using log files.
+                        These files log
+                        visitors when they visit websites. All hosting companies do this and a part of hosting services'
+                        analytics. The information collected by log files include internet protocol (IP) addresses,
+                        browser
+                        type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly
+                        the
+                        number of clicks. These are not linked to any information that is personally identifiable. The
+                        purpose of the information is for analyzing trends, administering the site, tracking users'
+                        movement
+                        on the website, and gathering demographic information.
+                        <br>
+                        <br>
+
+                        Cookies and Web Beacons
+                        <br>
+
+                        Like any other website, https://studyanywhereofficial.herokuapp.com/ uses 'cookies'. These
+                        cookies are used to store
+                        information including visitors' preferences, and the pages on the website that the visitor
+                        accessed
+                        or visited. The information is used to optimize the users' experience by customizing our web
+                        page
+                        content based on visitors' browser type and/or other information.
+                        <br>
+                        <br>
+
+                        Google DoubleClick DART Cookie
+                        <br>
+
+
+                        Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies,
+                        to
+                        serve ads to our site visitors based upon their visit to www.website.com and other sites on the
+                        internet. However, visitors may choose to decline the use of DART cookies by visiting the Google
+                        ad
+                        and content network Privacy Policy at the following URL –
+                        <br>
+
+                        https://policies.google.com/technologies/ads
+
+                        Privacy Policies
+                        <br>
+
+                        <br>
+
+                        You may consult this list to find the Privacy Policy for each of the advertising partners of
+                        https://studyanywhereofficial.herokuapp.com/. Our Privacy Policy was created with the help of
+                        the GDPR Privacy Policy
+                        Generator
+                        <br>
+
+                        <br>
+
+                        Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons
+                        that are used in their respective advertisements and links that appear on
+                        https://studyanywhereofficial.herokuapp.com/, which are sent directly to users' browser. They
+                        automatically receive
+                        your IP address when this occurs. These technologies are used to measure the effectiveness of
+                        their
+                        advertising campaigns and/or to personalize the advertising content that you see on websites
+                        that
+                        you visit.
+                        <br>
+
+                        <br>
+
+                        Note that https://studyanywhereofficial.herokuapp.com/ has no access to or control over these
+                        cookies that are used
+                        by third-party advertisers.
+                        <br>
+
+                        <br>
+
+
+                        Third Party Privacy Policies
+                        <br>
+
+                        https://studyanywhereofficial.herokuapp.com/'s Privacy Policy does not apply to other
+                        advertisers or websites. Thus,
+                        we are advising you to consult the respective Privacy Policies of these third-party ad servers
+                        for
+                        more detailed information. It may include their practices and instructions about how to opt-out
+                        of
+                        certain options. You may find a complete list of these Privacy Policies and their links here:
+                        Privacy Policy Links.
+                        <br>
+
+                        You can choose to disable cookies through your individual browser options. To know more detailed
+                        information about cookie management with specific web browsers, it can be found at the browsers'
+                        respective websites. What Are Cookies?
+                        <br>
+                        <br>
+
+
+                        Children's Information
+                        <br>
+
+                        Another part of our priority is adding protection for children while using the internet. We
+                        encourage parents and guardians to observe, participate in, and/or monitor and guide their
+                        online
+                        activity.
+                        <br>
+                        <br>
+
+                        https://studyanywhereofficial.herokuapp.com/ does not knowingly collect any Personal
+                        Identifiable Information from
+                        children under the age of 13. If you think that your child provided this kind of information on
+                        our
+                        website, we strongly encourage you to Contact immediately and we will do our best efforts to
+                        promptly remove such information from our records.
+                        <br>
+
+                        <br>
+                        Online Privacy Policy Only
+                        <br>
+
+                        This Privacy Policy applies only to our online activities and is valid for visitors to our
+                        website
+                        with regards to the information that they shared and/or collect in
+                        https://studyanywhereofficial.herokuapp.com/. This
+                        policy is not applicable to any information collected offline or via channels other than this
+                        website.
+                        <br>
+                        Consent
+                        By using our website, you hereby consent to our Privacy Policy and agree to its Terms and
+                        Conditions.
+
+                    </p>
+                    <br>
+                </div>
+            </div>
+
+            <footer class="bg-light text-center text-white">
+                <!-- Grid container -->
+                <div class="container p-4 pb-0">
+                    <!-- Section: Social media -->
+                    <section class="mb-4">
+                        <!-- Facebook -->
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="
+                        https://www.facebook.com/onlymeme.in
+                        " role="button"><i class="fab fa-facebook-f"></i></a>
+
+                        <!-- Twitter -->
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="
+                        https://twitter.com/ourshopkeeper/
+                        " role="button"><i class="fab fa-twitter"></i></a>
+
+                        <!-- Google -->
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #dd4b39;" href="
+                        https://www.pinterest.ca/kingage30s/
+                        " role="button"><i class="fab fa-pinterest"></i></a>
+
+                        <!-- Instagram -->
+
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href=" 
+                        https://www.instagram.com/ourshopkeeper/
+                        " role="button"><i class="fab fa-instagram"></i></a>
+
+                        <!-- Linkedin -->
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #0082ca;" href="
+             #
+                        " role="button"><i class="fab fa-linkedin-in"></i></a>
+                        <!-- Github -->
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #333333;" href="
+                        https://www.youtube.com/channel/UCnh4JOHzQ1BYGYvXPppeOGA?sub_confirmation=1
+                        " role="button"><i class="fab fa-youtube-square"></i></a>
+                    </section>
+                    <!-- Section: Social media -->
+                </div>
+                <!-- Grid container -->
+
+                <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    Made with ❤️️ By
+                    <a class="text-white" href="/"> Khushpreet</a>
+
+                </div>
+                <!-- Copyright -->
+            </footer>
+        </section>
+    </div>
+</body>
+
+</html>
