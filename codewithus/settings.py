@@ -26,7 +26,10 @@ SECRET_KEY = 'django-insecure-jjy)5g27kr-u%2x5xnfa7fkg0uxp837ovyia&pyjzz8_r*yxy8
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['studyanywhere.azurewebsites.net','studyanywhere.app', 'www.studyanywhere.app']
+# ALLOWED_HOSTS = ['studyanywhere.azurewebsites.net','studyanywhere.app', 'www.studyanywhere.app']
+
+
+# ALLOWED_HOSTS = ['*']
 
 # Application definition
 
