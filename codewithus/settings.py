@@ -33,7 +33,9 @@ ALLOWED_HOSTS = ['studyanywhere.app', 'www.studyanywhere.app','127.0.0.1', 'stud
 
 # Application definition
 
-CSRF_TRUSTED_ORIGINS = ['https://www.studyanywhere.app/','https://studyanywhere.azurewebsites.net/','https://.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://studyanywhere.azurewebsites.net', 'https://www.studyanywhere.app','https://.127.0.0.1']
+
+# CSRF_TRUSTED_ORIGINS = ['https://www.studyanywhere.app/','https://studyanywhere.azurewebsites.net/','https://.127.0.0.1']
 
 
 INSTALLED_APPS = [
