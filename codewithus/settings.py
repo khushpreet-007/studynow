@@ -27,10 +27,10 @@ DEBUG = True
 
 
 # ALLOWED_HOSTS = ['studyanywhere.app', 'www.studyanywhere.app','127.0.0.1', 'studyanywhere.azurewebsites.net']
-# ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'project1-khushpreet.azurewebsites.net']
 
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
 
 # Application definition
 
