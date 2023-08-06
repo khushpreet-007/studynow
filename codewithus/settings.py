@@ -30,8 +30,9 @@ DEBUG = False
 ALLOWED_HOSTS = ['make-aware.azurewebsites.net']
 
 # Application definition
-CSRF_TRUSTED_ORIGINS = ['https://.127.0.0.1']
+# CSRF_TRUSTED_ORIGINS = ['https://.127.0.0.1']
 # CSRF_TRUSTED_ORIGINS = ['https://studyanywhere.azurewebsites.net', 'https://www.studyanywhere.app','https://.127.0.0.1','https://studyanywhere.app/']
+CSRF_TRUSTED_ORIGINS = ['https://make-aware.azurewebsites.net/']
 
 
 INSTALLED_APPS = [
@@ -135,9 +136,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_ROOT = BASE_DIR / '/staticfiles'
+STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / '/static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
