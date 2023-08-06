@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['make-aware.azurewebsites.net']
 # Application definition
 # CSRF_TRUSTED_ORIGINS = ['https://.127.0.0.1']
 # CSRF_TRUSTED_ORIGINS = ['https://studyanywhere.azurewebsites.net', 'https://www.studyanywhere.app','https://.127.0.0.1','https://studyanywhere.app/']
-CSRF_TRUSTED_ORIGINS = ['https://make-aware.azurewebsites.net/']
+CSRF_TRUSTED_ORIGINS = ['http://make-aware.azurewebsites.net/']
 
 
 INSTALLED_APPS = [
@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'codewithus.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase',
+        'NAME': BASE_DIR/ 'db.sqlite3',
     }
 }
 
