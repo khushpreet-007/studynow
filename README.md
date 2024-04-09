@@ -1,5 +1,4 @@
 # studynow
-# Production Link: http://make-aware.azurewebsites.net/
 
 Front Page
 ![image](https://github.com/khushpreet-007/studynow/assets/75271300/c7b4d5e0-5286-4e94-bf9e-f34029cb34fa)
